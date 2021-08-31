@@ -1,0 +1,110 @@
+@import "variables";
+
+body
+{
+    min-width: 320px;
+    color: $mainFontColor;
+}
+
+.feedback-form
+{
+    label
+    {
+        display: block;
+        width: 100%;
+    }
+
+    .label-title
+    {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .submit-button
+    {
+        width: 100%;
+    }
+}
+
+.icon
+{
+    display: inline-block;
+}
+
+.section
+{
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+    &.dark {
+        background-color: $mainColor;
+        color: #333;
+    }
+}
+
+.section-title
+{
+    margin-bottom: 15px;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 500;
+    font-family: $fontTitle;
+
+    &.red
+    {
+        color: #f01420;
+    }
+}
+
+.gallery {
+    text-align: center;
+
+    img {
+        transition: .3s;
+        display: inline-block;
+
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
+}
+
+.gallery-image
+{
+    max-width: 100%;
+    height: auto;
+}
+
+.gallery-item
+{
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.article
+{
+    font-size: 18px;
+    text-align: justify;
+
+    p
+    {
+        margin: 16px 0;
+    }
+}
+
+.text-bold
+{
+    font-weight: bold;
+}
+
+.text-red
+{
+    color: #942906FF;
+}
+
+.map-container
+{
+    height: 400px;
+    margin-bottom: -35px;
+}

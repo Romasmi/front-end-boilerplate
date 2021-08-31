@@ -1,0 +1,5 @@
+assets/template/bower_components
+temp.*
+.idea
+node_modules
+temp.html
