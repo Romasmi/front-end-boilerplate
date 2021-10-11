@@ -2,7 +2,7 @@ $(function () {
     lazyLoad('.lazy');
     loadMap('#mapContainer');
 
-    $('.phone-mask').inputmask('+7 (999) 999-99-99');
+    $('.phone-mask').inputmask('9 (999) 999-99-99');
 
     $('.gallery').lightGallery({
         download: false,
@@ -17,36 +17,15 @@ $(function () {
         }
     });
 
-    let header = $('.header');
+    let $header = $('.header');
     $('.smooth-scroll').on('click', function (event) {
         let hash = this.hash;
-        let headerHeight = header.outerHeight();
+        let headerHeight = $header.outerHeight();
         $('html, body').animate({
             scrollTop: $(hash).offset().top - headerHeight * 1.2
         }, 800, function () {
             window.location.hash = hash;
         });
-    });
-
-    $('.order-form').each(function (){
-        $(this).priceContainer();
-    });
-
-    let deliveryContainer = $('#deliveryContainer');
-    $('#deliveryYes').on('click', function (){
-        if ($(this).prop('checked') && deliveryContainer.hasClass('hidden'))
-        {
-            deliveryContainer.removeClass('hidden');
-            deliveryContainer.slideDown();
-        }
-    });
-
-    $('#deliveryNo').on('click', function (){
-        if ($(this).prop('checked') && !deliveryContainer.hasClass('hidden'))
-        {
-            deliveryContainer.addClass('hidden');
-            deliveryContainer.slideUp();
-        }
     });
 });
 

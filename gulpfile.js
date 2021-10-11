@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const spritesmith = require('gulp.spritesmith');
-const svgSprite = require('gulp-svg-sprite');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
