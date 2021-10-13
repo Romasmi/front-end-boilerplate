@@ -2,6 +2,10 @@ $(function () {
     lazyLoad('.lazy');
     loadMap('#mapContainer');
 
+    $('.lazy-load-script').each(function () {
+        $(this).lazyLoadScript();
+    });
+
     $('.phone-mask').inputmask('9 (999) 999-99-99');
 
     $('.gallery').lightGallery({
@@ -46,3 +50,16 @@ function lazyLoad(lazySelector)
     });
     observer.observe();
 }
+
+(function( $ ) {
+
+    $.fn.lazyLoadScript = function() {
+        const _this = this;
+        const timeout = (this.data('timeout') !== undefined) ? parseInt(this.data('timeout')) : 2000;
+        setTimeout(function() {
+            _this.append($("<script />", {
+                src: _this.data('script')
+            }));
+        }, timeout);
+    };
+})(jQuery);
