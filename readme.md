@@ -14,5 +14,5 @@ Usage example:
 <img class="lazy" src="{link}" data-srcset="{link}"
     srcset="assets/template/image/1x1.png" alt="">
 
-<div class="lazy" data-background-image="{link}">
+<div class="lazy" data-background-image="{link}"></div>
 
