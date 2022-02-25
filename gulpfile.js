@@ -5,6 +5,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
+const svgSprite = require('gulp-svg-sprite');
 
 let path = {
     'sprite': 'assets/template/image/sprite/*',
@@ -32,6 +33,33 @@ function createSpritePNG() {
 
     spriteData.img.pipe(gulp.dest(path.image));
     return spriteData.css.pipe(gulp.dest(path.css));
+}
+
+function createSpriteSVG() {
+    return gulp.src(path.sprite + '.svg')
+        .pipe(svgSprite({
+            mode: {
+                symbol: {
+                    dest: 'image',
+                    sprite: 'sprite.svg'
+                },
+                css: {
+                    render: {
+                        css: true
+                    }
+                }
+            },
+            shape: {
+                id: {
+                    generator: function(fileName) {
+                        spriteID = fileName.slice(0, -4);
+                        camelCasedSpriteID = spriteID.replace(/_([a-z])/g, g => g[1].toUpperCase());
+                        return camelCasedSpriteID;
+                    }
+                }
+            }
+        }))
+        .pipe(gulp.dest(path.template));
 }
 
 function style() {
@@ -63,6 +91,7 @@ function watch() {
     });
 
     gulp.watch(path.sprite + '.png', createSpritePNG);
+    gulp.watch(path.sprite + '.svg', createSpriteSVG);
     gulp.watch(path.scss, style);
     gulp.watch([path.html, path.js]).on('change', browserSync.reload);
 }

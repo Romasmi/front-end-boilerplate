@@ -1,7 +1,7 @@
 {
-  "name": "makulatura",
-  "description": "",
-  "main": "index.js",
+  "name": "front-end-boilerplate",
+  "description": "That's out company base boilerplate for internal projects.",
+  "main": "index.html",
   "authors": [
     "romasmi <romasmi@ro.ru>"
   ],
@@ -10,15 +10,15 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
     "assets/template/bower_components",
     "test",
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^5.1.3",
     "lightgallery": "^1.9.0",
-    "inputmask": "jquery.inputmask#^5.0.5",
-    "lozad": "^1.16.0"
+    "inputmask": "^5.0.7",
+    "lozad": "^1.16.0",
+    "jquery": "^3.6.0"
   }
 }

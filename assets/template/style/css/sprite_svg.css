@@ -1,0 +1,8 @@
+.icon-arrow {
+  background-image: url("assets/template/image/sprite.svg#arrow");
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 24px;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3ByaXRlX3N2Zy5jc3MiLCJzb3VyY2VzIjpbInNwcml0ZV9zdmcuc2NzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIuaWNvbi1hcnJvd1xyXG57XHJcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJ2Fzc2V0cy90ZW1wbGF0ZS9pbWFnZS9zcHJpdGUuc3ZnI2Fycm93Jyk7XHJcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gICAgd2lkdGg6IDE1cHg7XHJcbiAgICBoZWlnaHQ6IDI0cHg7XHJcbn0iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsQUFBQSxXQUFXLENBQ1g7RUFDSSxnQkFBZ0IsRUFBRSw2Q0FBNkM7RUFDL0QsaUJBQWlCLEVBQUUsU0FBUztFQUM1QixLQUFLLEVBQUUsSUFBSTtFQUNYLE1BQU0sRUFBRSxJQUFJO0NBQ2YifQ== */

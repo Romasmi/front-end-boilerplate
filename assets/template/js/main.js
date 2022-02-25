@@ -1,10 +1,7 @@
 $(function () {
-    lazyLoad('.lazy');
-    loadMap('#mapContainer');
+    lazyLoadImage('.lazy');
 
-    $('.lazy-load-script').each(function () {
-        $(this).lazyLoadScript();
-    });
+    $('.lazy-load-script').lazyLoadScript();
 
     $('.phone-mask').inputmask('9 (999) 999-99-99');
 
@@ -32,34 +29,3 @@ $(function () {
         });
     });
 });
-
-function loadMap(mapContainerSelector)
-{
-    let mapContainer = $(mapContainerSelector);
-    setTimeout(function () {
-        mapContainer.html(mapContainer.data('map'));
-        mapContainer.children('.preloader').hide();
-    }, 2000);
-}
-
-function lazyLoad(lazySelector)
-{
-    const observer = lozad(lazySelector, {
-        threshold: 0.1,
-        enableAutoReload: true
-    });
-    observer.observe();
-}
-
-(function( $ ) {
-
-    $.fn.lazyLoadScript = function() {
-        const _this = this;
-        const timeout = (this.data('timeout') !== undefined) ? parseInt(this.data('timeout')) : 2000;
-        setTimeout(function() {
-            _this.append($("<script />", {
-                src: _this.data('script')
-            }));
-        }, timeout);
-    };
-})(jQuery);
