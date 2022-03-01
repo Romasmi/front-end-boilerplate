@@ -1,4 +1,4 @@
-# Front-End boilerplate
+# Layout boilerplate
 
 That's our company base boilerplate for an internal projects.
 
