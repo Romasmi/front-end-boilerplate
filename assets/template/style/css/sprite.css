@@ -1,0 +1,40 @@
+.icon {
+  background: url("../../image/sprite-c23438b5.svg") no-repeat;
+}
+
+.icon-arrow {
+  background-position: 91.4634146341% 48%;
+  width: 30px;
+  height: 12px;
+}
+
+.icon-arrow-left {
+  background-position: 77.3195876289% 76.1904761905%;
+  width: 15px;
+  height: 24px;
+}
+
+.icon-arrow-top {
+  background-position: 0 0;
+  width: 75px;
+  height: 75px;
+}
+
+.icon-clock {
+  background-position: 98.9010989011% 72.7272727273%;
+  width: 21px;
+  height: 21px;
+}
+
+.icon-comment {
+  background-position: 0 100%;
+  width: 12px;
+  height: 12px;
+}
+
+.icon-consultation {
+  background-position: 100% 0;
+  width: 37px;
+  height: 36px;
+}
+/*# sourceMappingURL=sprite.css.map */
