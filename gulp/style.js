@@ -20,6 +20,4 @@ function style() {
         .pipe(gulp.dest(path.compiled + path.css));
 }
 
-export {
-    style
-}
+export default style;

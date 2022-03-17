@@ -1,34 +1,22 @@
 import gulp from 'gulp';
-import {server} from './gulp/server.js';
-import {style} from './gulp/style.js';
-import {js} from './gulp/scripts.js';
-import {sprite} from './gulp/sprite.js';
-import {template} from './gulp/template.js';
-import {image, webpGenerator} from './gulp/image.js';
-import {woffConverter, woff2Converter} from './gulp/fonts.js';
+import server from './gulp/server.js';
+import style from './gulp/style.js';
+import js from './gulp/scripts.js';
+import sprite from './gulp/sprite.js';
+import template from './gulp/template.js';
+import image from './gulp/image.js';
+import fonts from './gulp/fonts.js';
 
 import {path} from './gulp/config.js';
 
-const images = gulp.parallel(image, webpGenerator);
-const fonts = gulp.parallel(woff2Converter, woffConverter);
-const defaultTask = gulp.series(
-    sprite,
-    gulp.parallel(
-        js,
-        style,
-        images,
-        template,
-        fonts
-    )
-);
 const watch = () => {
     server();
     gulp.watch(path.source + path.js, js);
     gulp.watch(path.source + path.scss, style);
     gulp.watch(path.source + path.image + path.sprite, sprite);
-    gulp.watch(path.source + path.image, images);
+    gulp.watch(path.source + path.image, image);
     gulp.watch(path.source + path.font, fonts);
-    gulp.watch(path.source + '*.html', template);
+    gulp.watch(path.source + '**/*.twig', template);
 }
 
 export {
@@ -37,18 +25,21 @@ export {
     js,
     sprite,
     template,
-    images,
+    image,
     fonts,
     watch
 }
 
-export default defaultTask;
-
-/*
-
-'watch = () => {
-};
-*/
+export default gulp.series(
+    sprite,
+    gulp.parallel(
+        js,
+        style,
+        image,
+        template,
+        fonts,
+    )
+);
 
 /*
 * TODO
@@ -69,7 +60,7 @@ server
 image
 - min
 - webp
-fonts
+fontss
 - ttf to woof and woof2
 
 * copy svg sprite to compiled dir

@@ -1,0 +1,11 @@
+{% extends 'view/base/base.twig' %}
+
+{% block content %}
+
+  <ul>
+    {% for product in products %}
+      <li>{{ product.name }} - {{ product.count }}</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

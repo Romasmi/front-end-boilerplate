@@ -27,7 +27,7 @@ function woff2Converter (){
         .pipe(gulp.dest(path.compiled + path.font))
 }
 
-export {
+export default gulp.parallel(
     woffConverter,
     woff2Converter
-}
+)

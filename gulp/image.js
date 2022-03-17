@@ -31,7 +31,7 @@ function webpGenerator() {
         .pipe(gulp.dest(path.compiled + path.image))
 }
 
-export {
+export default gulp.parallel(
     image,
     webpGenerator
-}
+)

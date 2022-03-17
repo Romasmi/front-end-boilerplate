@@ -19,6 +19,4 @@ function js() {
         .pipe(gulp.dest(path.compiled + path.js))
 }
 
-export {
-    js
-}
+export default js;

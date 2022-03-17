@@ -9,6 +9,4 @@ function server() {
     });
 }
 
-export {
-    server
-}
+export default server;

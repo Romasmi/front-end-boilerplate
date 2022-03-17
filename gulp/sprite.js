@@ -1,11 +1,13 @@
 import del from "del";
 import gulp from "gulp";
 import svgSprite from "gulp-svg-sprite";
+import copy from "gulp-copy";
 
 import {path} from './config.js';
 
 function sprite() {
-    del(path.source + path.image + 'sprite*.svg').then(r => {});
+    del(path.source + path.image + 'sprite*.svg').then(r => {
+    });
     return gulp.src(path.source + path.image + path.sprite + '*.svg')
         .pipe(svgSprite({
             mode: {
@@ -31,6 +33,15 @@ function sprite() {
         .pipe(gulp.dest(path.source));
 }
 
-export {
-    sprite
+function copySprite() {
+    del(path.compiled + path.image + 'sprite*.svg').then(r => {
+    });
+    return gulp.src(path.source + path.image + 'sprite*.svg')
+        .pipe(copy('', {}))
+        .pipe(gulp.dest(path.compiled + path.image));
 }
+
+export default gulp.series(
+    sprite,
+    copySprite
+);
