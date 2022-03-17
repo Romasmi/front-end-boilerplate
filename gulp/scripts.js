@@ -12,8 +12,10 @@ function js() {
         .pipe(babel({
             presets: ['@babel/env']
         }))
+/*
         .pipe(jsObfuscator())
         .pipe(uglify())
+*/
         .pipe(gulp.dest(path.compiled + path.js))
 }
 

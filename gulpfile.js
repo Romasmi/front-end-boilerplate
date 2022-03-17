@@ -1,89 +1,76 @@
-    const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync').create();
-const sourcemaps = require('gulp-sourcemaps');
-const del = require('del');
-const svgSprite = require('gulp-svg-sprite');
+import gulp from 'gulp';
+import {server} from './gulp/server.js';
+import {style} from './gulp/style.js';
+import {js} from './gulp/scripts.js';
+import {sprite} from './gulp/sprite.js';
+import {template} from './gulp/template.js';
+import {image, webpGenerator} from './gulp/image.js';
+import {woffConverter, woff2Converter} from './gulp/fonts.js';
 
-let path = {
-    'sprite': 'assets/template/image/sprite/',
-    'image': 'assets/template/image/',
-    'css': 'assets/template/style/css/',
-    'scss': 'assets/template/style/scss/',
-    'html': '*.html',
-    'js': 'assets/template/js/main.js',
-    'template': 'assets/template/',
+import {path} from './gulp/config.js';
+
+const images = gulp.parallel(image, webpGenerator);
+const fonts = gulp.parallel(woff2Converter, woffConverter);
+const defaultTask = gulp.series(
+    sprite,
+    gulp.parallel(
+        js,
+        style,
+        images,
+        template,
+        fonts
+    )
+);
+const watch = () => {
+    server();
+    gulp.watch(path.source + path.js, js);
+    gulp.watch(path.source + path.scss, style);
+    gulp.watch(path.source + path.image + path.sprite, sprite);
+    gulp.watch(path.source + path.image, images);
+    gulp.watch(path.source + path.font, fonts);
+    gulp.watch(path.source + '*.html', template);
+}
+
+export {
+    server,
+    style,
+    js,
+    sprite,
+    template,
+    images,
+    fonts,
+    watch
+}
+
+export default defaultTask;
+
+/*
+
+'watch = () => {
 };
+*/
 
-function sprite() {
-    del.sync([path.image + 'sprite*.svg']);
-    return gulp.src(path.sprite + '*.svg')
-        .pipe(svgSprite({
-            mode: {
-                css: {
-                    dest: '/' + path.scss,
-                    render: {
-                        scss: true
-                    },
-                    dimensions: true,
-                    prefix: '.icon-%s',
-                    sprite: '/' + path.image + 'sprite.svg',
-                    common: 'icon'
-                },
-            },
-            shape: {
-                id: {
-                    generator: function(fileName) {
-                        spriteID = fileName.slice(0, -4);
-                        camelCasedSpriteID = spriteID.replace(/_([a-z])/g, g => g[1].toUpperCase());
-                        return camelCasedSpriteID;
-                    }
-                }
-            }
-        }))
-        .pipe(gulp.dest(path.template));
-}
+/*
+* TODO
+scss
+- min
+- concat
+sprite
+- svg
+js
+- babel
+- min
+- concat
+template
+- include
+server
+- server
+- reload
+image
+- min
+- webp
+fonts
+- ttf to woof and woof2
 
-function style() {
-    return gulp.src(path.scss + '*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }))
-        .pipe(autoprefixer([
-            'Android >= 2.2',
-            'Chrome >= 3.5',
-            'Firefox >= 3.5',
-            'iOS >= 8',
-            'Opera >= 10.1',
-            'Safari >= 3',
-        ]))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(path.css))
-        .pipe(browserSync.stream());
-}
-
-function watch() {
-    browserSync.init({
-        server: {
-            baseDir: './'
-        }
-    });
-
-    gulp.watch(path.sprite + '*.svg', sprite);
-    gulp.watch(path.scss + '*.scss', style);
-    gulp.watch([path.html, path.js]).on('change', browserSync.reload);
-}
-
-function build()
-{
-    sprite();
-    style();
-}
-
-exports.default = watch;
-exports.svg = sprite;
-exports.style = style;
-
-exports.build = build;
+* copy svg sprite to compiled dir
+* * */
