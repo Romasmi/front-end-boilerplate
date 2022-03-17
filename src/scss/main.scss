@@ -1,0 +1,34 @@
+@import "variables";
+
+body {
+    font-family: $font;
+
+    .foo {
+        .bar {
+            display: none;
+            display: none;
+            -webkit-transition: 0.3s;
+            -o-transition: 0.3s;
+            -moz-transition: 0.3s;
+            transition: 0.3s;
+            -webkit-transform: rotateX(25deg);
+            -moz-transform: rotateX(25deg);
+            transform: rotateX(25deg);
+        }
+    }
+
+    .foo {
+        .bar {
+            display: none;
+            display: none;
+            -webkit-transition: 0.3s;
+            -o-transition: 0.3s;
+            -moz-transition: 0.3s;
+            transition: 0.3s;
+            -webkit-transform: rotateX(25deg);
+            -moz-transform: rotateX(25deg);
+            transform: rotateX(25deg);
+            opacity: 0;
+        }
+    }
+}
