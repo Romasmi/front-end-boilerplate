@@ -37,7 +37,6 @@ function copySprite() {
     del(path.compiled + path.image + 'sprite*.svg').then(r => {
     });
     return gulp.src(path.source + path.image + 'sprite*.svg')
-        .pipe(copy('', {}))
         .pipe(gulp.dest(path.compiled + path.image));
 }
 

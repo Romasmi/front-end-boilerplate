@@ -1,10 +1,10 @@
 export default [
     {
         name: 'apple',
-        count: 3
+        price: 150
     },
     {
         name: 'orange',
-        count: 4
+        price: 45
     }
 ]

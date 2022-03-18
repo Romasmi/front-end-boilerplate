@@ -6,6 +6,7 @@ import sprite from './gulp/sprite.js';
 import template from './gulp/template.js';
 import image from './gulp/image.js';
 import fonts from './gulp/fonts.js';
+import favicon from './gulp/favicon.js';
 
 import {path} from './gulp/config.js';
 
@@ -27,6 +28,7 @@ export {
     template,
     image,
     fonts,
+    favicon,
     watch
 }
 
@@ -40,28 +42,3 @@ export default gulp.series(
         fonts,
     )
 );
-
-/*
-* TODO
-scss
-- min
-- concat
-sprite
-- svg
-js
-- babel
-- min
-- concat
-template
-- include
-server
-- server
-- reload
-image
-- min
-- webp
-fontss
-- ttf to woof and woof2
-
-* copy svg sprite to compiled dir
-* * */

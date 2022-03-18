@@ -4,17 +4,17 @@
 //=require ../bower_components/bootstrap/js/dist/dom/data.js
 //=require ../bower_components/bootstrap/js/dist/base-component.js
 //=require ../bower_components/bootstrap/js/dist/modal.js
-//=require ../bower_components/jquery/dist/jquery.js
 //=require ../bower_components/lozad/dist/lozad.js
-//=require ../bower_components/lightgallery/dist/js/lightgallery.js
-//=require ../bower_components/inputmask/dist/jquery.inputmask.js
-//=require ../bower_components/lozad/dist/lozad.js
+//require ../bower_components/lightgallery/dist/js/lightgallery.js
+//require ../bower_components/inputmask/dist/jquery.inputmask.js
+//require ../bower_components/lozad/dist/lozad.js
 
-//=require plugin.js
+//require plugin.js
 
 $(function () {
-    lazyLoadImage('.lazy');
+    //lazyLoadImage('.lazy');
 
+/*
     $('.lazy-load-script').lazyLoadScript();
 
     $('.phone-mask').inputmask('9 (999) 999-99-99');
@@ -42,5 +42,6 @@ $(function () {
             window.location.hash = hash;
         });
     });
+*/
 });
 
