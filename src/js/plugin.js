@@ -1,3 +1,4 @@
+/*
 (function( $ ) {
     $.fn.lazyLoadScript = function() {
         return this.each(function (){
@@ -11,6 +12,7 @@
         });
     };
 })(jQuery);
+*/
 
 function lazyLoadImage(lazySelector)
 {

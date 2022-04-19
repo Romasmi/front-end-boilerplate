@@ -1,12 +1,16 @@
-import browserSync from 'browser-sync';
+import browserSyncPlugin from "browser-sync";
 import {path} from './config.js';
 
-function server() {
-    return browserSync.init({
+const browserSync = browserSyncPlugin.create();
+
+function serve() {
+    browserSync.init({
         server: path.compiled,
-        open: false,
+        open: true,
         port: 3000
     });
 }
 
-export default server;
+const reload = browserSync.reload;
+
+export {serve, reload};

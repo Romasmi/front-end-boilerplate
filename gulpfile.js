@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import server from './gulp/server.js';
+import * as server from './gulp/server.js';
 import style from './gulp/style.js';
 import js from './gulp/scripts.js';
 import sprite from './gulp/sprite.js';
@@ -11,17 +11,17 @@ import favicon from './gulp/favicon.js';
 import {path} from './gulp/config.js';
 
 const watch = () => {
-    server();
+    server.serve();
     gulp.watch(path.source + path.js, js);
     gulp.watch(path.source + path.scss, style);
     gulp.watch(path.source + path.image + path.sprite, sprite);
     gulp.watch(path.source + path.image, image);
     gulp.watch(path.source + path.font, fonts);
     gulp.watch(path.source + '**/*.twig', template);
+    gulp.watch(path.source + '**/*.*').on('change', server.reload);
 }
 
 export {
-    server,
     style,
     js,
     sprite,
